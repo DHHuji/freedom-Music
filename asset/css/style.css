@@ -2183,7 +2183,7 @@ body.menu-drawer-toggled {
 @media(min-width: 768px) {
     .metadata dl > .property dt:not(.sidebar-region .metadata dl>.property dt) {
         margin-bottom: 0;
-        float: left;
+        float: inline-start;
         width: 160px
     }
 }
@@ -2194,7 +2194,7 @@ body.menu-drawer-toggled {
 
 @media(min-width: 768px) {
     .metadata dl > .property dd:not(.sidebar-region .metadata dl>.property dd) {
-        margin-left: 160px
+        margin-inline-start: 160px
     }
 }
 
