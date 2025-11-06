@@ -2194,7 +2194,7 @@ body.menu-drawer-toggled {
 
 @media(min-width: 768px) {
     .metadata dl > .property dd:not(.sidebar-region .metadata dl>.property dd) {
-        margin-inline-start: 160px
+        margin-left: 160px
     }
 }
 
