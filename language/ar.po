@@ -8203,3 +8203,12 @@ msgid ""
 " to know about their current activity."
 msgstr ""
 "سلسلة تعبر عما يسعد المستخدم أن يعرفه عامة الناس (عادةً) عن نشاطهم الحالي."
+
+msgid "Music"
+msgstr "موسيقى"
+
+msgid "Related Persons"
+msgstr "الأشخاص ذوو الصلة"
+
+msgid "About"
+msgstr "عن"
