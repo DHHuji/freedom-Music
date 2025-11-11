@@ -489,6 +489,10 @@ figure {
     outline-offset: -10px
 }
 
+.resource-list .resource-link .resource-name::after {
+  content: ':\00a0';
+}
+
 .resource .description {
     white-space: -moz-pre-wrap;
     white-space: -hp-pre-wrap;
@@ -497,7 +501,8 @@ figure {
     white-space: pre-wrap;
     white-space: pre-line;
     word-wrap: break-word;
-    word-break: break-word
+    word-break: break-word;
+    margin-inline-start:1
 }
 
     .resource .description.fadeout {
