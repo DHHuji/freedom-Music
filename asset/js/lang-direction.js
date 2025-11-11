@@ -73,11 +73,11 @@ function setPageDirection() {
   
   // set footer text
   const texts = {
-      en: "Music, Muslims and Jews: Exploring Past and Contemporary Relationalities is supported by a Breakthrough Research Grant of the Israel Science Foundation (grant no. 1172/24)",
+      en: "Music, Muslims and Jews: Exploring Past and Contemporary Relationalities is supported by a Breakthrough Research Grant of the Israel Science Foundation (grant no. 1172/24). Contact: <a href='mailto:mmj@gmail.com'>mmj@gmail.com</a>",
       ar: "بحاجة إلى نص عربي",
       he: "צריך טקסט בעברית"
     };
-  document.getElementById("footer-text").textContent = texts[langCode] || "";
+  document.getElementById("footer-text").innerHTML = texts[langCode] || "";
 
   console.log(`Page direction set to: ${direction} for language: ${langAttribute}`);
 }
