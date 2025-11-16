@@ -1,5 +1,6 @@
  const browseScripts = () => {
     const resources = document.querySelectorAll('.resources');
+    var direction = document.documentElement.getAttribute('dir') || 'ltr';
 
     resources.forEach((resourcesSet, index) => {
         const resourceItems = resourcesSet.querySelectorAll('.resource');
@@ -13,7 +14,8 @@
                     container: resourcesSet,
                     gutter: 27,
                     ultimateGutter: 27,
-                    surroundingGutter: false
+                    surroundingGutter: false,
+                    direction: direction
                 });
 
                 //Reset layout on img load

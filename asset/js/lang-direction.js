@@ -70,7 +70,7 @@ function setPageDirection() {
   if (mainContent) {
     mainContent.setAttribute('dir', direction);
   }
-  
+ 
   // set footer text
   const texts = {
       en: "Music, Muslims and Jews: Exploring Past and Contemporary Relationalities is supported by a Breakthrough Research Grant of the Israel Science Foundation (grant no. 1172/24). Contact: <a href='mailto:mmj@gmail.com'>mmj@gmail.com</a>",
