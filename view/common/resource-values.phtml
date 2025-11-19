@@ -70,7 +70,25 @@ foreach ($values as $term => $propertyData):
                 <?php if ($showLocale && $valueLang) : ?>
                     <span class="language"><?php echo $valueLang; ?></span>
                 <?php endif; ?>
-                <span class="value-content"><?php echo $filterLocale ? $value->asHtml($lang) : $value->asHtml(); ?></span>
+
+                <!-- replaced code for resource link to be multi-lingual -->
+                <span class="value-content"><?php 
+                    if ('resource' == $valueType || strpos($valueType, 'resource') !== false) {
+                        // Custom rendering for linked resources with locale-filtered title
+                        $lLang = $lang;
+                        //the english resource is saved with 'en' but the page language is 'en-US'
+                        if ($lLang === "en-US") {$lLang = "en";} 
+                
+                        $linkedResource = $value->valueResource();
+                        if ($linkedResource) {
+                            $title = $linkedResource->displayTitle(null, [$lLang, '']);
+                            echo $linkedResource->link($title);
+                        }
+                    } else {
+                        echo $value->asHtml();
+                    }
+                ?></span>
+
                 <?php if(!$value->isPublic()) : ?>
                     <span class="o-icon-private" aria-role="tooltip" title="<?php echo $this->escapeHtml($translate('Private')); ?>" aria-label="<?php echo $this->escapeHtml($translate('Private')); ?>"></span>
                 <?php endif; ?>
