@@ -3,24 +3,63 @@ body {
 }
 
 /*settings for homepage links*/
-.home-description {
-    font-size: 1.5rem;
+@media (max-width: 1200px) {
+    .home-description {
+        font-size: 1.4rem;
+    }
+
+    .home-link-container {
+        margin-top: 1.5rem;
+        gap: 9px;
+    }
+
+    .home-link-item {
+        padding: 15px 15px;
+        font-size: 1.2rem;
+    }
+
+        .home-link-item a {
+            font-size: 1.2rem;
+        }
+
+        .home-link-item::after {
+            bottom: -15px;
+        }
+}
+
+@media (min-width: 1201px) {
+    .home-description {
+        font-size: 1.5rem;
+    }
+
+    .home-link-container {
+        margin-top: 2rem;
+        gap: 12px;
+    }
+
+    .home-link-item {
+        padding: 20px 20px;
+        font-size: 1.5rem;
+    }
+
+        .home-link-item a {
+            font-size: 1.5rem;
+        }
+
+        .home-link-item::after {
+            bottom: -10px;
+        }
 }
 
 .home-link-container {
-    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .home-link-item {
     background-color: #f4e8d0;
-    padding: 20px 20px;
-    font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
     border: none;
@@ -33,7 +72,6 @@ body {
         content: '→';
         position: absolute;
         left: 50%;
-        bottom: -10px;
         transform: translateX(-50%);
         opacity: 0;
         transition: all 0.3s ease;
@@ -63,7 +101,6 @@ body {
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-size: 1.5rem;
 }
 
 .home-link-item:hover a {
