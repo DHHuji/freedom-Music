@@ -213,17 +213,10 @@ h5, h6 {
 
 h1 {
     clear: both;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 1.875rem
-}
-
-@media(min-width: 768px) {
-    h1 {
-        font-size: 3.125rem;
-        margin-bottom: 3.125rem
-    }
 }
 
 h2 {
@@ -583,6 +576,10 @@ table {
 .caption {
     font-style: italic;
     font-size: .8125rem
+}
+.asset .caption {
+    font-style: italic;
+    font-size: 1rem
 }
 
 .tooltip {
@@ -944,7 +941,7 @@ body.main-header--center {
     max-width: 1440px;
     margin-inline-start: auto;
     margin-inline-end: auto;
-    padding: 0 15px
+    padding: 0 15px;
 }
 
 @media(min-width: 768px) {
@@ -954,14 +951,14 @@ body.main-header--center {
 }
 
 #main-content {
-    padding-top: 2rem;
-    padding-bottom: 3rem
+    padding-top: 0.5rem;
+    padding-bottom: 0rem
 }
 
 @media(min-width: 1024px) {
     #main-content {
-        padding-top: 3rem;
-        padding-bottom: 4rem
+        padding-top: 0.5rem;
+        padding-bottom: 0rem
     }
 }
 
@@ -1079,8 +1076,8 @@ body.main-header--center {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 @media(min-width: 1024px) {
@@ -1123,7 +1120,7 @@ body.main-header--center {
     }
 
 .main-header hr {
-    background-color: #394f68;
+    background-color: #d4a424;
     margin-bottom: 0
 }
 
@@ -1131,7 +1128,7 @@ body.main-header--center {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #394f68!important;
+    background-color: #d4a424!important;
 }
 
 .main-header__site-title a {
@@ -1339,7 +1336,7 @@ body.main-header--center {
     margin-bottom: 0;
     padding-inline-start: 0;
     margin-inline-start: 0;
-    background-color: #394f68;
+    background-color: #d4a424;
 }
 
 .main-navigation .navigation > li > ul {
@@ -1352,8 +1349,7 @@ body.main-header--center {
     overflow: hidden;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #394f68;
-    box-shadow: inset 0px 3px 0px 0px var(--primary);
+    background-color: #d4a424;
     position: absolute;
     list-style: none;
     margin: 0;
@@ -2279,7 +2275,7 @@ body.menu-drawer-toggled {
     }
 
 .assets {
-    margin-bottom: 3rem
+    margin-bottom: 1rem
 }
 
     .assets.inline {
