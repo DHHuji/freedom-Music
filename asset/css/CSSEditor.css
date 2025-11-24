@@ -126,6 +126,11 @@ ul.language-switcher.locale-code {
 }
 
 /*eliminate Items heading from browse all search results*/
+.site-page-about .block-pageTitle {
+    display: none !important;
+}
+
+/*eliminate Items heading from browse all search results*/
 h2:has(span.title:contains("Items")) {
     display: none !important;
 }
@@ -198,6 +203,7 @@ body.site-page-home #main-content {
     width: 100%;
     display: grid;
     place-items: start center;
+    margin-top: 10px
 }
 
 .block-asset .asset {
