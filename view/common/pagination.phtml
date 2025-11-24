@@ -1,26 +1,37 @@
 <?php
 $translate = $this->plugin('translate');
+// Check if the current locale is RTL
+$isRtl = in_array($this->lang(), ['ar', 'he', 'fa', 'ur']); // Add other RTL language codes as needed
+$prevIcon = $isRtl ? 'o-icon-next' : 'o-icon-prev';
+$nextIcon = $isRtl ? 'o-icon-prev' : 'o-icon-next';
 ?>
 <nav class="pagination" role="navigation">
     <?php if ($totalCount): ?>
-
         <?php
-        $from = $offset + 1;
-        $to = ($currentPage < $pageCount) ? $offset + $perPage : $totalCount;
-        $results = $totalCount === 1 ? 'result' : 'results';
-        ?>
-        <span class="row-count"><?php echo sprintf($translate('Showing %1$s to %2$s of %3$s %4$s'), $from, $to, $totalCount, $results); ?></span>
-
+$from = $offset + 1;
+$to = ($currentPage < $pageCount) ? $offset + $perPage : $totalCount;
+$results = $totalCount === 1 ? $translate('result') : $translate('results');
+?>
+<span class="row-count">
+    <?php echo sprintf(
+        '%s %s %s %s %s %s %s',
+        $translate('Showing'),
+        $from,
+        $translate('to'),
+        $to,
+        $translate('of'),
+        $totalCount,
+        $results
+    ); ?>
+</span>
         <?php if ($pageCount > 1): ?>
-
             <div class="pager-wrapper">
                 <!-- Prev Button -->
                 <?php if ($currentPage != 1): ?>
-                    <?php echo $this->hyperlink('', $previousPageUrl, ['class' => 'previous o-icon-prev button', 'title' => $translate('Previous'), 'aria-label' => $translate('Previous')]); ?>
+                    <?php echo $this->hyperlink('', $previousPageUrl, ['class' => 'previous ' . $prevIcon . ' button', 'title' => $translate('Previous'), 'aria-label' => $translate('Previous')]); ?>
                 <?php else: ?>
-                    <span class="prev o-icon-prev button disabled" disabled></span>
+                    <span class="prev <?php echo $prevIcon; ?> button disabled" disabled></span>
                 <?php endif; ?>
-
                 <!-- Pager -->
                 <form class="pager" method="GET" action="">
                     <?php echo $this->queryToHiddenInputs(['page']); ?>
@@ -28,20 +39,17 @@ $translate = $this->plugin('translate');
                         <?php echo $translate('Page'); ?>
                         <input type="text" id="" name="page" class="page-input-top" value="<?php echo $currentPage; ?>" size="4" <?php echo ($pageCount == 1) ? 'readonly' : ''; ?> aria-label="<?php echo $translate('Page'); ?>">
                     </label>
-                    <span class="page-count"><?php echo sprintf($translate('of %s'), $pageCount); ?></span>
-                    <input type="submit" class="gotopage-btn" value="Go">
+                    <span class="page-count"><?php echo sprintf('%s %s', $translate('of'), $pageCount); ?></span>
+                    <input type="submit" class="gotopage-btn" value="<?php echo $translate('Go'); ?>">
                 </form>
-
                 <!-- Next Button -->
                 <?php if ($currentPage < $pageCount): ?>
-                    <?php echo $this->hyperlink('', $nextPageUrl, ['class' => 'next o-icon-next button', 'title' => $translate('Next'), 'aria-label' => $translate('Next')]); ?>
+                    <?php echo $this->hyperlink('', $nextPageUrl, ['class' => 'next ' . $nextIcon . ' button', 'title' => $translate('Next'), 'aria-label' => $translate('Next')]); ?>
                 <?php else: ?>
-                    <span class="next o-icon-next button disabled" disabled></span>
+                    <span class="next <?php echo $nextIcon; ?> button disabled" disabled></span>
                 <?php endif; ?>
             </div>
-
         <?php endif; ?>
-
     <?php else: ?>
         <?php echo $translate('0 results'); ?>
     <?php endif; ?>
