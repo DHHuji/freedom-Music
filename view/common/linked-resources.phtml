@@ -18,10 +18,11 @@ if ($this->status()->isSiteRequest()) {
 
 // Set up resource property select.
 $labelMap = [
-    'items' => 'Items', // @translate
-    'item_sets' => 'Item sets', // @translate
-    'media' => 'Media', // @translate
+    'items' => $this->translate('Items'),
+    'item_sets' => $this->translate('Item sets'),
+    'media' => $this->translate('Media'),
 ];
+
 $resourcePropertiesSelect = new Select('resource_property');
 $resourcePropertiesSelect->setValue($resourceProperty);
 $resourcePropertiesSelect->setAttributes([
@@ -36,7 +37,7 @@ foreach ($resourcePropertiesAll as $type => $resourceProperties) {
     }
     $valueOptions[$type] = [
         'label' => $labelMap[$type],
-        'options' => [sprintf('%s:', $type) => sprintf('%s: All', $labelMap[$type])],
+        'options' => [sprintf('%s:', $type) => sprintf('%s: %s',         $labelMap[$type], $this->translate('All'))],
     ];
     foreach ($resourceProperties as $resourceProperty) {
         $label = $resourceProperty['label_is_translatable']
@@ -67,11 +68,14 @@ $resourcePropertiesSelect->setValueOptions($valueOptions);
 
 <?php foreach ($subjectValues as $values): ?>
     <?php
+    $lLang = $lang;
+    if ($lang=="en-US"){$lLang="en";}
     $caption = sprintf(
-        $this->translate('%s with "%s: %s"'),
-        $this->translate($labelMap[$resourceType]),
+        '%s %s "%s: %s"',
+        $this->translate($labelMap[$resourceType]), // "Items" / "Item sets" / "Media"
+        $this->translate('with'), // @translate
         $values[0]['property_alternate_label'] ?? $this->translate($values[0]['property_label']),
-        $objectResource->displayTitle()
+        $objectResource->displayTitle(null, $lLang)
     );
     ?>
 
