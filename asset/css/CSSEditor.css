@@ -183,6 +183,11 @@ h1 {
     padding-top: 0.5rem;
     padding-bottom: 0rem;
 }
+
+body.search-page.resource #main-content {
+    max-width: 90vw;
+}
+
 /* widen main-content on home page*/
 body.site-page-home #main-content {
     max-width: 1200px !important;

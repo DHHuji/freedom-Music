@@ -11,14 +11,16 @@ switch ($searchType) {
         $searchAction = $this->url('site/resource', ['controller' => 'index', 'action' => 'search'], true);
         */
         /* this is browse all for search results*/
-        $searchAction = $this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], true);
+        // $searchAction = $this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], true);
+        $searchAction = $this->url('site/resource', ['controller' => 'find', 'action' => 'index'], true);
+        $searchAction = preg_replace('#/index#', '', $searchAction);
 }
-$searchValue = $this->escapeHtml($this->params()->fromQuery('fulltext_search', ''));
+$searchValue = $this->escapeHtml($this->params()->fromQuery('q', ''));
 ?>
 
 <form action="<?php echo $this->escapeHtml($searchAction); ?>" id="search-form">
     <input type="hidden" name="view" value="list">
-    <input type="text" name="fulltext_search" value="<?php echo $searchValue; ?>"
+    <input type="text" name="q" value="<?php echo $searchValue; ?>"
         placeholder="<?php echo $translate('Search'); ?>"
         aria-label="<?php echo $translate('Search'); ?>">
     <button type="submit"><i class="fa fa-search"></i></button>
